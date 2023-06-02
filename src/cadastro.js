@@ -36,8 +36,8 @@ export default function TelaCadastro() {
           style={styles.input}
         />
         
-        <TextInput placeholder="Crie sua senha" style={styles.input} />
-        <TextInput placeholder="Confirme sua senha" style={styles.input} />
+        <TextInput placeholder="Crie sua senha" style={styles.input} secureTextEntry  />
+        <TextInput placeholder="Confirme sua senha" style={styles.input}  secureTextEntry/>
         <View style={{ paddingLeft: 50, paddingRight: 50 }}>
           <Button mode="outlined" buttonColor="#01B1FD" textColor="white" onPress={()=>navigator.navigate('login')}>
             FINALIZAR CADASTRO
