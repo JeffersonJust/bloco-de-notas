@@ -1,6 +1,7 @@
 import { View, Text, TextInput, StyleSheet,ScrollView } from "react-native";
 import { Appbar, Button, Searchbar,Drawer } from "react-native-paper";
 
+
 import { useNavigation } from "@react-navigation/native";
 
 
@@ -24,7 +25,8 @@ export default function TelaInicial() {
           titleStyle={{ color: "#FFFFFF", fontSize: 28, fontWeight: "bold" }}
           style={{ paddingLeft:20 }}
         />
-         <Appbar.Action icon="menu" size={40} color="#1573DD" />
+         <Appbar.Action icon="menu" size={40} color="#1573DD" 
+         />
 
 
 
@@ -34,6 +36,17 @@ export default function TelaInicial() {
          placeholderTextColor={'#1573DD'} />
       </View>
     
+<Drawer.Section title="configurações">
+  
+  <Drawer.Item 
+      label="conta"
+  />
+  <Drawer.Item 
+      label="senha"
+  />
+  
+  </Drawer.Section>
+  
         <ScrollView>
 
 
