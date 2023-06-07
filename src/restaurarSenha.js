@@ -1,5 +1,5 @@
-import { View, Text, TextInput, StyleSheet } from "react-native";
-import { Appbar, Button } from "react-native-paper";
+import { View, Text,TextInput ,StyleSheet } from "react-native";
+import { Appbar, Button,  } from "react-native-paper";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -29,14 +29,15 @@ export default function TelaRestaurarSenha() {
       </Appbar.Header>
 <View style={{ justifyContent: "center", padding: 20, flex: 1, gap: 9 }}>
 
-    <TextInput placeholder="Informe seu e-mail" style={styles.input} />
+    <TextInput placeholder="Informe seu e-mail" style={styles.input}  />
+    
         <TextInput
           placeholder="Informe seu nome de usuário"
           style={styles.input}
         />
         
-        <TextInput placeholder="Digite a nova senha" style={styles.input} />
-        <TextInput placeholder="Confirme sua senha" style={styles.input} />
+        <TextInput placeholder="Digite a nova senha" style={styles.input} secureTextEntry/>
+        <TextInput placeholder="Confirme sua senha" style={styles.input} secureTextEntry/>
 
 <View style={{ paddingLeft: 50, paddingRight: 50, paddingTop:20}}>
           <Button mode="outlined" buttonColor="#01B1FD" textColor="white" onPress={()=>navigator.navigate('login')}>

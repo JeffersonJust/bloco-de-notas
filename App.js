@@ -19,7 +19,10 @@ export default function App() {
 
       <Stack.Screen name='cadastro' component={TelaCadastro} options={{ headerShown: false }}/>
 
-      <Stack.Screen name='inicial' component={TelaInicial} options={{headerShown:false}}/>
+      <Stack.Screen name='inicial' component={TelaInicial} options={{headerShown:false}}
+      
+      
+      />
 
       <Stack.Screen name = 'restaurar' component={TelaRestaurarSenha} options={{headerShown: false}}/>
       
