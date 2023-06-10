@@ -23,12 +23,12 @@ export default function TelaLogin() {
       <View style={{ justifyContent: "center", padding: 20, flex: 1, gap: 8 }}>
         <TextInput placeholder="Digite seu usuário" style={styles.input} />
 
-        <TextInput placeholder="Digite sua senha" style={styles.input} />
-        <Button textColor="white" onPress={()=> navigator.navigate('restaurar')} >Esqueceu a senha?</Button>
+        <TextInput placeholder="Digite sua senha" style={styles.input} secureTextEntry />
+        <Button textColor="white" onPress={() => navigator.navigate('restaurar')} >Esqueceu a senha?</Button>
         <View style={{ paddingLeft: 50, paddingRight: 50, gap: 8 }}>
 
 
-          <Button mode="outlined" buttonColor="#1B6FEE" textColor="white" onPress={()=> navigator.navigate('inicial')}>
+          <Button mode="outlined" buttonColor="#1B6FEE" textColor="white" onPress={() => navigator.navigate('inicial')}>
             ENTRAR
           </Button>
           <Button
