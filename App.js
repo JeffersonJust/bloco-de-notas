@@ -5,8 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TelaLogin from './src/login.js';
 import TelaCadastro from './src/cadastro.js';
 import TelaInicial from './src/inicial.js';
-import TelaRestaurarSenha from './src/restaurarSenha.js';
-
+import TelaRestaurarSenha from './src/esqueciSenha.js';
+import Anotacoes from './src/anotacoes.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +19,9 @@ export default function App() {
 
       <Stack.Screen name='cadastro' component={TelaCadastro} options={{ headerShown: false }}/>
 
-      <Stack.Screen name='inicial' component={TelaInicial} options={{headerShown:false}}/>
+      <Stack.Screen name='inicial' component={TelaInicial} options={{headerShown:false}}
+/>
+      <Stack.Screen name='anotar' component={Anotacoes} options={{headerShown:false}}/>
 
       <Stack.Screen name = 'restaurar' component={TelaRestaurarSenha} options={{headerShown: false}}/>
       
