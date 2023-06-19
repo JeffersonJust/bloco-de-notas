@@ -8,9 +8,11 @@ export default function TelaInicial() {
   const navigator = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   const [lista, setLista] = useState([])
+  const [pegaId, setPegaId] = useState()
+
   useEffect(() => {
     const load = async () => {
-      const result = await fetch("https://jsonplaceholder.typicode.com/comments")
+      const result = await fetch("http://localhost:3000/anotacao")
       const resultAnot = await result.json()
 
       console.log('resultAnot', resultAnot)
@@ -102,18 +104,20 @@ export default function TelaInicial() {
           renderItem={({ item }) => (
             <View style={{gap:10}}>
             <View style={{backgroundColor:'#1573DD',padding:10, borderRadius:10,}}>
-            <Text numberOfLines={1} style={{ color: 'white', fontSize:25 }}>{item.name}</Text>
+            <Text numberOfLines={1} style={{ color: 'white', fontSize:25 }}
+             onPress={()=> setPegaId(item.id)}>{item.titulo}</Text>
+           {console.log(pegaId)}
+          
             </View>
            <Divider style={{backgroundColor:'black'}} />
             </View>
-          )} />
+  )} />  
   
   </View>
-  
         {console.log('lista:', lista)}
         <View style={{ position: 'absolute', margin: 16, right: 0, top: 700 }} >
           <FAB icon={'pencil'} customSize={70}
-            style={{ backgroundColor: '#1573DD' }} onPress={() => navigator.navigate("anotar")}
+            style={{ backgroundColor: '#01B1FD' }} onPress={() => navigator.navigate("anotar")}
           />
         </View>
   
@@ -121,6 +125,7 @@ export default function TelaInicial() {
       </View>
     )
   }
+  //carregando...
   else{
     return(
       <>
