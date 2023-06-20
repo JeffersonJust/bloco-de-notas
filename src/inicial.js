@@ -12,7 +12,7 @@ export default function TelaInicial() {
 
   useEffect(() => {
     const load = async () => {
-      const result = await fetch("http://localhost:3000/anotacao")
+      const result = await fetch("https://api-backend-bd-tarde.onrender.com/anotacao")
       const resultAnot = await result.json()
 
       console.log('resultAnot', resultAnot)
