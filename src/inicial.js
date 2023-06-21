@@ -4,14 +4,26 @@ import { useState } from "react";
 
 import { useNavigation } from "@react-navigation/native";
 
+<<<<<<< Updated upstream
 
+=======
+const urlDev = "http://localhost:3000"
+const urlProduct = "https://api-backend-bd-tarde.onrender.com"
+>>>>>>> Stashed changes
 
 export default function TelaInicial() {
   const navigator = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   return (
 
+<<<<<<< Updated upstream
     <View style={{ backgroundColor: "#000000", flex: 1 }}>
+=======
+  useEffect(() => {
+    const load = async () => {
+      const result = await fetch(`${urlProduct}/anotacao`)
+      const resultAnot = await result.json()
+>>>>>>> Stashed changes
 
       <Modal
         transparent={true}
@@ -53,6 +65,7 @@ export default function TelaInicial() {
         </View>
       </Modal>
 
+<<<<<<< Updated upstream
       <Appbar.Header
         style={{
           backgroundColor: "#0E0E0E",
@@ -75,6 +88,31 @@ export default function TelaInicial() {
       <View style={{ padding: 20 }}>
         <Searchbar placeholder="Pesquisar" iconColor="#1573DD"
           placeholderTextColor={'#1573DD'} />
+=======
+        <FlatList
+          data={lista}
+          renderItem={({ item }) => (
+            <ScrollView style={{gap:10}}>
+            <View style={{backgroundColor:'#1573DD',padding:10, borderRadius:10,}}>
+            <Text numberOfLines={1} style={{ color: 'white', fontSize:25 }}
+             onPress={()=> setPegaId(item.id)}>{item.titulo}</Text>
+           {console.log(pegaId)}
+          
+            </View>
+           <Divider style={{backgroundColor:'black'}} />
+            </ScrollView>
+  )} />  
+  
+  </View>
+        {console.log('lista:', lista)}
+        <View style={{ position: 'absolute', margin: 16, right: 0, top: 700 }} >
+          <FAB icon={'pencil'} customSize={70}
+            style={{ backgroundColor: '#01B1FD' }} onPress={() => navigator.navigate("anotar")}
+          />
+        </View>
+  
+  
+>>>>>>> Stashed changes
       </View>
 
       
