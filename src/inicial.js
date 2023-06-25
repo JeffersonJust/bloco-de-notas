@@ -107,8 +107,9 @@ export default function TelaInicial() {
           renderItem={({ item }) => (
             <ScrollView style={{gap:10}}>
             <View style={{backgroundColor:'#1573DD',padding:10, borderRadius:10,}}>
+
             <Text numberOfLines={1} style={{ color: 'white', fontSize:25 }}
-             onPress={()=> setPegaId(item.id)}>{item.titulo}</Text>
+             onPress={() => navigator.navigate("editar",{id : item.id })}>{item.titulo}</Text>
            {console.log(pegaId)}
           
             </View>

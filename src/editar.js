@@ -8,37 +8,45 @@ const urlDev = "http://localhost:3000"
 const urlProduct = "https://api-backend-bd-tarde.onrender.com"
 
 
-export default function Anotacoes(){
 
+export default function Edicoes({route}){
 
+const [lista, setLista] = useState({})
 const [desc, setDesc] = useState('')
 const[tit, setTit] = useState("")
 
-
-
-
+const {id} = route.params
    console.log(desc)
    console.log(tit)
+    console.log(id)
+
+    useEffect(() => {
+        const load = async () => {
+          const result = await fetch(`${urlProduct}/anotacao/${id}`)
+          const resultAnot = await result.json()
     
-      const load = async () => {
-        const result = await fetch(`${urlProduct}/anotacao`, 
-        {
-          method:"POST",
-          headers:{
-                titulo: tit,
-                descricao: desc
-              },
+         // console.log('resultAnot', resultAnot)
+    
+          setLista(resultAnot)
         }
- 
+    
+      load()
+    
+    
+      }, [])
+console.log(lista)
+
+const excluir = async () => {
+    const result = await fetch(`${urlProduct}/anotacao/${id}`, 
+    {
+      method:"DELETE"
+    
+    }
     ).then( res => res)
-
-
-        const resultAnot = await result.json()
-    
-        console.log('resultAnot', resultAnot)
    
-      }
-    
+    console.log('excluído')
+}
+
     return(
     <View style={{backgroundColor:'#030303',flex:1}}>
 <Appbar.Header style={{backgroundColor:'#000000',
@@ -46,14 +54,18 @@ const[tit, setTit] = useState("")
             <TextInput placeholder="Título" selectionColor="white" activeOutlineColor="#4D4B4B"
             textColor="white" mode="outlined" 
              style={{backgroundColor:'#000000',fontSize:22,width:165,paddingLeft:5,
-      }} 
+      }}
+        value={lista.titulo}
         onChangeText={ (text ) => setTit(text)}/>
-      <View style={{flex:1, paddingLeft:80, paddingRight:20 }} >
+         <Appbar.Action icon="delete" size={40} color="#1573DD" onPress={()=> excluir()}    />
+      <View style={{flex:1, paddingLeft:10, paddingRight:20 }} >
 <Button mode="Contained" textColor="white" buttonColor="#1B6FEE" 
- onPress={() => load()} >SALVAR</Button>
+  >SALVAR </Button>
 </View>
 </Appbar.Header>
-<TextInput mode="outlined" textColor="white" multiline={true} numberOfLines={10000}
+<TextInput mode="outlined" textColor="white" 
+value={lista.descricao} 
+ multiline={true} numberOfLines={10000}
 activeOutlineColor="#4D4B4B"
 style={{backgroundColor:'#030303'}}  
 onChangeText={ (text) => setDesc(text) }/>
