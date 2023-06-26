@@ -9,13 +9,11 @@ const urlProduct = "https://api-backend-bd-tarde.onrender.com"
 
 
 export default function Anotacoes() {
+
   const navigator = useNavigation();
 
   const [desc, setDesc] = useState('')
   const [tit, setTit] = useState("")
-
-
-
 
   console.log(desc)
   console.log(tit)
@@ -56,19 +54,27 @@ export default function Anotacoes() {
         backgroundColor: '#000000',
         borderBottomColor: "#4D4B4B", borderBottomWidth: 2,
       }}>
-        <TextInput placeholder="Título" selectionColor="white" activeOutlineColor="#4D4B4B"
+        <TextInput placeholder="Título" selectionColor="white" 
+          activeOutlineColor="#4D4B4B"
           textColor="white" mode="outlined"
+          onChangeText={(text) => setTit(text)}
           style={{
-            backgroundColor: '#000000', fontSize: 22, width: 165, paddingLeft: 5,
-          }}
-          onChangeText={(text) => setTit(text)} />
+                  backgroundColor: '#000000', 
+                  fontSize: 22, 
+                  width: 165, 
+                  paddingLeft: 5,
+                }}/>
+                
         <View style={{ flex: 1, paddingLeft: 80, paddingRight: 20 }} >
+
           <Button mode="Contained" textColor="white" buttonColor="#1B6FEE"
             onPress={() => load()} >SALVAR</Button>
+
         </View>
 
       </Appbar.Header>
-      <TextInput mode="outlined" textColor="white" multiline={true} numberOfLines={10000}
+      <TextInput mode="outlined" textColor="white" 
+        multiline={true} numberOfLines={10000}
         activeOutlineColor="#4D4B4B"
         style={{ backgroundColor: '#030303' }}
         onChangeText={(text) => setDesc(text)} />

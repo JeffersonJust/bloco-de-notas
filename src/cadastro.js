@@ -28,20 +28,26 @@ export default function TelaCadastro() {
 
 
 
-      <View style={{ justifyContent: "center", padding: 20, flex: 1, gap: 8 }}>
+      <View style={{ justifyContent: "center", 
+                     padding: 20, 
+                     flex: 1, 
+                     gap: 8 }}>
+
         <TextInput placeholder="Digite seu e-mail" style={styles.input} />
 
-        <TextInput
-          placeholder="Crie seu nome de usuário"
-          style={styles.input}
-        />
+        <TextInput placeholder="Crie seu nome de usuário" style={styles.input}/>
 
         <TextInput placeholder="Crie sua senha" style={styles.input} secureTextEntry />
+
         <TextInput placeholder="Confirme sua senha" style={styles.input} secureTextEntry />
+
         <View style={{ paddingLeft: 50, paddingRight: 50 }}>
-          <Button mode="outlined" buttonColor="#01B1FD" textColor="white" onPress={() => navigator.navigate('login')}>
+
+          <Button mode="outlined" buttonColor="#01B1FD" textColor="white" 
+                  onPress={() => navigator.navigate('login')}>
             FINALIZAR CADASTRO
           </Button>
+
         </View>
       </View>
     </View>
