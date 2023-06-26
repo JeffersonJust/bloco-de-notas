@@ -14,23 +14,23 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-    <Stack.Navigator inicialRouteName = 'login'>
+      <Stack.Navigator inicialRouteName='login'>
 
-      <Stack.Screen name="login" component={TelaLogin} options={{ headerShown: false }} />
+        <Stack.Screen name="login" component={TelaLogin} options={{ headerShown: false }} />
 
-      <Stack.Screen name='cadastro' component={TelaCadastro} options={{ headerShown: false }}/>
+        <Stack.Screen name='cadastro' component={TelaCadastro} options={{ headerShown: false }} />
 
-      <Stack.Screen name='inicial' component={TelaInicial} options={{headerShown:false}}/>
+        <Stack.Screen name='inicial' component={TelaInicial} options={{ headerShown: false }} />
 
-      <Stack.Screen name='anotar' component={Anotacoes} options={{headerShown:false}}/>
+        <Stack.Screen name='anotar' component={Anotacoes} options={{ headerShown: false }} />
 
-      <Stack.Screen name = 'restaurar' component={TelaRestaurarSenha} options={{headerShown: false}}/>
-      
-      <Stack.Screen name='editar' component={Edicoes} options={{ headerShown: false }}/>
+        <Stack.Screen name='restaurar' component={TelaRestaurarSenha} options={{ headerShown: false }} />
 
-      
-    </Stack.Navigator>
-  </NavigationContainer>
+        <Stack.Screen name='editar' component={Edicoes} options={{ headerShown: false }} />
+
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

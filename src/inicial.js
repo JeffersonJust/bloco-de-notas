@@ -1,6 +1,6 @@
-import { View, Text, TextInput, StyleSheet, ScrollView, Modal, Settings, FlatList } from "react-native";
-import { Appbar, Button, Searchbar, FAB, IconButton,Divider,ActivityIndicator } from "react-native-paper";
-import { useState, useEffect,Map } from "react";
+import { View, Text, TextInput, StyleSheet, ScrollView, Modal, Settings, FlatList, Alert } from "react-native";
+import { Appbar, Button, Searchbar, FAB, IconButton, Divider, ActivityIndicator } from "react-native-paper";
+import { useState, useEffect, Map } from "react";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -11,7 +11,7 @@ export default function TelaInicial() {
   const navigator = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   const [lista, setLista] = useState([])
-  const [pegaId, setPegaId] = useState()
+
 
   useEffect(() => {
     const load = async () => {
@@ -28,35 +28,35 @@ export default function TelaInicial() {
 
   }, [])
 
-  
 
-    
-  if(lista.length >0){
+
+
+  if (lista.length > 0) {
     return (
 
-      <View style={{ backgroundColor: "#000000", flex: 1 }}>
-  
+      <View style={{ backgroundColor: "#000000", flex: 1 }} >
+
         <Modal
           transparent={true}
           animationType="slide"
           visible={modalVisible}>
-  
+
           <View style={{
             flex: 1,
             justifyContent: 'center',
             paddingTop: 400
           }} >
-  
+
             <View style={{
               flex: 1,
               backgroundColor: '#1573DD',
               borderTopEndRadius: 20,
               borderTopStartRadius: 20,
               padding: 35,
-  
+
             }}>
               <Text style={{ fontSize: 30, position: "absolute", left: 370, fontWeight: 'bold', color: 'white' }} onPress={() => setModalVisible(false)}>x</Text>
-  
+
               <Text style={{ color: 'white', fontSize: 20 }}>
                 Usuário:
               </Text>
@@ -66,7 +66,7 @@ export default function TelaInicial() {
               <View style={{ paddingTop: 50, gap: 15 }}>
                 <Text style={{ color: 'white', fontSize: 20 }}>
                   Deseja restaurar sua senha?
-  
+
                 </Text>
                 <Button style={{ borderColor: 'black' }} mode="outlined" buttonColor="#01B1FD" textColor="white"
                   onPress={() => navigator.navigate("restaurar")}
@@ -75,7 +75,7 @@ export default function TelaInicial() {
             </View>
           </View>
         </Modal>
-  
+
         <Appbar.Header
           style={{
             backgroundColor: "#0E0E0E",
@@ -88,134 +88,134 @@ export default function TelaInicial() {
             titleStyle={{ color: "#FFFFFF", fontSize: 28, fontWeight: "bold" }}
             style={{ paddingLeft: 20 }}
           />
-  
+
           <Appbar.Action icon="account-circle" size={40} color="#1573DD" onPress={() => setModalVisible(true)}
           />
         </Appbar.Header>
-  
-  
-  
+
+
+
         <View style={{ padding: 20 }}>
           <Searchbar placeholder="Pesquisar" iconColor="#1573DD"
             placeholderTextColor={'#1573DD'} />
         </View>
-  
-       <View style={{paddingLeft:20,paddingRight:20,gap:20 }}>
 
-        <FlatList
-          data={lista}
-          renderItem={({ item }) => (
-            <ScrollView style={{gap:10}}>
-            <View style={{backgroundColor:'#1573DD',padding:10, borderRadius:10,}}>
+        <View style={{ paddingLeft: 20, paddingRight: 20, gap: 20 }}>
 
-            <Text numberOfLines={1} style={{ color: 'white', fontSize:25 }}
-             onPress={() => navigator.navigate("editar",{id : item.id })}>{item.titulo}</Text>
-           {console.log(pegaId)}
-          
-            </View>
-           <Divider style={{backgroundColor:'black'}} />
-            </ScrollView>
-  )} />  
-  
-  </View>
+          <FlatList
+            data={lista}
+            renderItem={({ item }) => (
+              <View style={{ gap: 10 }}>
+                <View style={{ backgroundColor: '#1573DD', padding: 10, borderRadius: 10, }}>
+
+                  <Text numberOfLines={1} style={{ color: 'white', fontSize: 25 }}
+                    onPress={() => navigator.navigate("editar", { id: item.id })}>{item.titulo}</Text>
+
+
+                </View>
+                <Divider style={{ backgroundColor: 'black' }} />
+              </View>
+            )} />
+
+        </View>
         {console.log('lista:', lista)}
         <View style={{ position: 'absolute', margin: 16, right: 0, top: 700 }} >
           <FAB icon={'pencil'} customSize={70}
             style={{ backgroundColor: '#01B1FD' }} onPress={() => navigator.navigate("anotar")}
           />
         </View>
-  
-  
+
+
       </View>
     )
   }
   //carregando...
-  else{
-    return(
+  else {
+    return (
       <>
-       <View style={{ backgroundColor: "#000000", flex: 1 }}>
-  
-  <Modal
-    transparent={true}
-    animationType="slide"
-    visible={modalVisible}>
+        <View style={{ backgroundColor: "#000000", flex: 1 }}>
 
-    <View style={{
-      flex: 1,
-      justifyContent: 'center',
-      paddingTop: 400
-    }} >
+          <Modal
+            transparent={true}
+            animationType="slide"
+            visible={modalVisible}>
 
-      <View style={{
-        flex: 1,
-        backgroundColor: '#1573DD',
-        borderTopEndRadius: 20,
-        borderTopStartRadius: 20,
-        padding: 35,
+            <View style={{
+              flex: 1,
+              justifyContent: 'center',
+              paddingTop: 400
+            }} >
 
-      }}>
-        <Text style={{ fontSize: 30, position: "absolute", left: 370, fontWeight: 'bold', color: 'white' }} onPress={() => setModalVisible(false)}>x</Text>
+              <View style={{
+                flex: 1,
+                backgroundColor: '#1573DD',
+                borderTopEndRadius: 20,
+                borderTopStartRadius: 20,
+                padding: 35,
 
-        <Text style={{ color: 'white', fontSize: 20 }}>
-          Usuário:
-        </Text>
-        <Text style={{ color: 'white', fontSize: 20 }}>
-          E-mail:
-        </Text>
-        <View style={{ paddingTop: 50, }}>
-          <Text style={{ color: 'white', fontSize: 20 }}>
-            Deseja restaurar sua senha?
+              }}>
+                <Text style={{ fontSize: 30, position: "absolute", left: 370, fontWeight: 'bold', color: 'white' }} onPress={() => setModalVisible(false)}>x</Text>
 
-          </Text>
-          <Button style={{ borderColor: 'black' }} mode="outlined" buttonColor="#01B1FD" textColor="white"
-            onPress={() => navigator.navigate("restaurar")}
-          >RESTAURAR</Button>
+                <Text style={{ color: 'white', fontSize: 20 }}>
+                  Usuário:
+                </Text>
+                <Text style={{ color: 'white', fontSize: 20 }}>
+                  E-mail:
+                </Text>
+                <View style={{ paddingTop: 50, }}>
+                  <Text style={{ color: 'white', fontSize: 20 }}>
+                    Deseja restaurar sua senha?
+
+                  </Text>
+                  <Button style={{ borderColor: 'black' }} mode="outlined" buttonColor="#01B1FD" textColor="white"
+                    onPress={() => navigator.navigate("restaurar")}
+                  >RESTAURAR</Button>
+                </View>
+              </View>
+            </View>
+          </Modal>
+
+          <Appbar.Header
+            style={{
+              backgroundColor: "#0E0E0E",
+              borderBottomColor: "#4D4B4B",
+              borderBottomWidth: 2,
+            }}
+          >
+            <Appbar.Content
+              title="NOTAS"
+              titleStyle={{ color: "#FFFFFF", fontSize: 28, fontWeight: "bold" }}
+              style={{ paddingLeft: 20 }}
+            />
+
+            <Appbar.Action icon="account-circle" size={40} color="#1573DD" onPress={() => setModalVisible(true)}
+            />
+          </Appbar.Header>
+
+
+
+          <View style={{ padding: 20 }}>
+            <Searchbar placeholder="Pesquisar" iconColor="#1573DD"
+              placeholderTextColor={'#1573DD'} />
+          </View>
+
+          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+
+
+            <ActivityIndicator animating={true} color={'#1573DD'} />
+            <Text style={{ color: '#1573DD' }}> AGUARDE..</Text>
+
+          </View>
+
+          {console.log('lista:', lista)}
+          <View style={{ position: 'absolute', margin: 16, right: 0, top: 700 }} >
+            <FAB icon={'pencil'} customSize={70}
+              style={{ backgroundColor: '#1573DD' }} onPress={() => navigator.navigate("anotar")}
+            />
+          </View>
+
+
         </View>
-      </View>
-    </View>
-  </Modal>
-
-  <Appbar.Header
-    style={{
-      backgroundColor: "#0E0E0E",
-      borderBottomColor: "#4D4B4B",
-      borderBottomWidth: 2,
-    }}
-  >
-    <Appbar.Content
-      title="NOTAS"
-      titleStyle={{ color: "#FFFFFF", fontSize: 28, fontWeight: "bold" }}
-      style={{ paddingLeft: 20 }}
-    />
-
-    <Appbar.Action icon="account-circle" size={40} color="#1573DD" onPress={() => setModalVisible(true)}
-    />
-  </Appbar.Header>
-
-
-
-  <View style={{ padding: 20 }}>
-    <Searchbar placeholder="Pesquisar" iconColor="#1573DD"
-      placeholderTextColor={'#1573DD'} />
-  </View>
-
- <View style={{justifyContent:'center',alignItems:'center'}}>
-
-
-    <ActivityIndicator   animating={true} color={'#1573DD'} />
-  <Text style={{color:'#1573DD'}}> AGUARDE..</Text>
-  
-</View>
-
-  {console.log('lista:', lista)}
-  <View style={{ position: 'absolute', margin: 16, right: 0, top: 700 }} >
-    <FAB icon={'pencil'} customSize={70}
-      style={{ backgroundColor: '#1573DD' }} onPress={() => navigator.navigate("anotar")}
-    />
-  </View>
-
-
-</View>
 
       </>
     )
